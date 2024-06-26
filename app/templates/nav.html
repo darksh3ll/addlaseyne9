@@ -1,14 +1,26 @@
+<style>
+    .active-link {
+    color: #0000ff;  /* Couleur du texte pour le lien actif */
+    border-bottom: 2px solid #0000ff;  /* Soulignement bleu solide */
+    padding-bottom: 2px;  /* Ajoute un peu d'espace sous le texte pour éviter que la bordure touche les lettres */
+
+}
+
+</style>
+
 <div class="container flex flex-col mx-auto bg-white">
     <div class="relative flex flex-wrap items-center justify-between w-full bg-white group py-7 shrink-0">
         <div>
             <img class="h-8" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-nav-0.png">
         </div>
         <div class="items-center justify-between hidden gap-12 text-black md:flex">
+            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900 {% if request.path == '/' %}active-link{% endif %}" href="/">Acceuil</a>
             <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="javascript:void(0)">Evenements</a>
-            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="javascript:void(0)">Témoignages</a>
-            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="javascript:void(0)">Pricing</a>
+            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="#testimony">Témoignages</a>
+            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="javascript:void(0)">Contact</a>
             <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="javascript:void(0)">Company</a>
-            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900" href="javascript:void(0)">Donate</a>
+            <a class="text-sm font-normal text-dark-grey-700 hover:text-dark-grey-900 {% if request.path == '/donate/' %}active-link{% endif %}" href="/donate">Donate</a>
+            
         </div>
         <button onclick="(() => { this.closest('.group').classList.toggle('open')})()" class="flex md:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
