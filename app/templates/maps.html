@@ -1,0 +1,23 @@
+<div class="container mx-auto mt-16 px-4">
+    <div class="text-center mb-8">
+        <div class="flex justify-center mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location Logo" class="w-16 h-16 spin-logo">
+        </div>
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">Notre Emplacement</h1>
+        <p class="text-lg text-gray-600">Venez nous rendre visite. Un parking est disponible pour votre commodité.</p>
+    </div>
+
+    {% if address %}
+    <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+        <iframe class="rounded-lg w-full"
+            src= {{address}}
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    {% else %}
+    <div class="rounded-lg overflow-hidden shadow-lg bg-white p-6 text-center text-red-500">
+        Désolé, une erreur est survenue. L'adresse est actuellement indisponible.
+    </div>
+    {% endif %}
+</div>
+
