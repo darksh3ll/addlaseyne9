@@ -9,17 +9,25 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
+     <!-- Background Animation -->
+  <div class="animated-bg"></div>
+    <!-- Progress Bar -->
+<div id="progressContainer" class="w-full bg-gray-200 fixed top-0 z-50">
+  <div id="progressBar" class="h-1 bg-blue-600"></div>
+</div>
+    
+  <div class="content">
       {% include "nav.html" %}
       {% include "header.html" %}
-      {% include "toto.html" %}
+      {% include "about.html" %}
+      {% include "step.html" %}
       {% include "teams.html" %}
       {% include "gallery.html" %}
-      {% include "about.html" %}
-      
-      {% include "testimony.html" %}
+      {% include "faq.html" %}
+      {% include "testimony.html"%}
+      {% include "edification.html" %}
       {% include "maps.html" %}
-
+      {% include "contact.html" %}
     </div>
   </body>
 </html>
@@ -27,6 +35,51 @@
 <style>
   html {
     scroll-behavior: smooth;
+   
+    
+    .content {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
+}
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#progressContainer {
+  width: 100%;
+  height: 8px;
+  background: #f3f4f6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+#progressBar {
+  height: 8px;
+  background: #4a90e2;
+  width: 0%;
 }
 
 </style>
+
+<script>
+  // When the user scrolls the page, execute the function
+  window.onscroll = function() {scrollProgressFunction()};
+
+  function scrollProgressFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+  }
+</script>

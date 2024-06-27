@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'app',
-    'fullCalendar'
+    'fullCalendar',
+    'testimony'
 ]
 
 MIDDLEWARE = [
