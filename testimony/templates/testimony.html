@@ -1,4 +1,12 @@
 <!-- Component -->
+
+{% for testimonial in testimonials %}
+<h1>{{ testimonial.title }}</h1>
+<p>{{ testimonial.content }}</p>
+<!-- Autres champs si nécessaire -->
+{% endfor %}
+
+
 <div class="flex flex-col justify-center items-center min-h-screen pt-10 " id="testimony">
     <!-- Title and Subtitle -->
     <div class="text-center text-purple-400 mb-10">
@@ -25,17 +33,19 @@
       </div>
     </div>
 
+
     <!-- Testimonials Section -->
     <div class="flex justify-center items-center w-full">
         <div class="w-full mx-5 md:w-[80rem] space-y-6 p-10">
           <!-- Grid Container -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Card -->
+             
             <article class="group relative flex flex-col shadow-lg max-w-[400px] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto bg-white rounded-lg overflow-hidden">
                 <div class="relative overflow-hidden flex flex-col justify-start p-6">
                     <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]"></span>
                     <div class="relative z-10 text-center">
-                        <h3 class="text-xl font-semibold hover:text-gray-700 pb-4">Comment Dieu m'a guéri de ma dépression</h3>
+                        <h3 class="text-xl font-semibold hover:text-gray-700 pb-4">{{title|truncatechars:5 }}</h3>
                         <p class="text-sm pb-3">
                             By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on October 22nd, 2019
                         </p>
@@ -217,4 +227,5 @@
             </div>
         </div>
     </div>
+
 </div>
