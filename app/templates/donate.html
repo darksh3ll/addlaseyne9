@@ -7,44 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation et Versets Inspirants</title>
 </head>
-<body>
-    {% include "nav.html" %}
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
 
     <!-- Composant de dons avec largeur augmentée et titre agrandi -->
-    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl my-10">
-        <div class="md:flex">
+    <div class="max-w-4xl bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl w-full p-6 relative">
+        <!-- Bouton de retour fixe -->
+        <a href="/"
+           class="absolute top-5 left-5 bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300 flex items-center">
+            <svg class="w-4 h-4 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Retour
+        </a>
+        <div class="md:flex flex-col items-center text-center">
             <div class="p-8">
-                <div class="uppercase tracking-wide text-xl text-indigo-600 font-bold">Soutenez votre église</div>
-                <p class="mt-2 text-gray-500">Votre générosité aide à couvrir les dépenses essentielles de notre église et à maintenir nos services. Voici comment vos dons sont utilisés :</p>
-                <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <div class="uppercase tracking-wide text-2xl text-indigo-600 font-bold">Soutenez votre église</div>
+                <p class="mt-2 text-lg text-gray-500">Votre générosité aide à couvrir les dépenses essentielles de notre église et à maintenir nos services. Voici comment vos dons sont utilisés :</p>
+                <ul class="list-disc pl-5 mt-2 text-lg text-gray-600 text-left">
                     <li><strong>Électricité et Chauffage :</strong> Pour garder notre église accueillante et fonctionnelle, quelle que soit la saison.</li>
                     <li><strong>Loyer :</strong> Pour assurer notre présence dans la communauté et continuer à offrir un lieu de culte.</li>
                     <li><strong>Maintenance et Réparations :</strong> Pour maintenir notre bâtiment en bon état et sécuritaire pour tous.</li>
                     <li><strong>Programmes Communautaires :</strong> Pour financer les activités qui soutiennent et enrichissent notre communauté.</li>
                 </ul>
-                <p class="mt-4 text-gray-500">Voici quelques versets qui soulignent l'importance de la dîme :</p>
+                <p class="mt-4 text-lg text-gray-500">Voici quelques versets qui soulignent l'importance de la dîme :</p>
                 <!-- Intégration des versets dans le composant -->
-                <div class="bg-white p-6 rounded-lg shadow-lg mb-10 w-full max-w-4xl">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Versets Bibliques Inspirants</h2>
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-10 w-full max-w-4xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
-                        <p class="text-gray-700 text-lg italic">"Honore l'Éternel avec tes biens, et avec les prémices de tout ton revenu." - Proverbes 3:9</p>
-                      </div>
-                      <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
-                        <p class="text-gray-700 text-lg italic">"Je puis tout par celui qui me fortifie." - Philippiens 4:13</p>
-                      </div>
-                      <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
-                        <p class="text-gray-700 text-lg italic">"Ne crains rien, car je suis avec toi; ne promène pas des regards inquiets, car je suis ton Dieu; je te fortifie, je viens à ton secours, je te soutiens de ma droite triomphante." - Ésaïe 41:10</p>
-                      </div>
-                      <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
-                        <p class="text-gray-700 text-lg italic">"L'Éternel est mon berger: je ne manquerai de rien." - Psaume 23:1</p>
-                      </div>
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="text-gray-700 text-lg italic">"Honore l'Éternel avec tes biens, et avec les prémices de tout ton revenu." - Proverbes 3:9</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="text-gray-700 text-lg italic">"Je puis tout par celui qui me fortifie." - Philippiens 4:13</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="text-gray-700 text-lg italic">"Ne crains rien, car je suis avec toi; ne promène pas des regards inquiets, car je suis ton Dieu; je te fortifie, je viens à ton secours, je te soutiens de ma droite triomphante." - Ésaïe 41:10</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="text-gray-700 text-lg italic">"L'Éternel est mon berger: je ne manquerai de rien." - Psaume 23:1</p>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-4">
-                    <label class="block text-sm font-medium text-gray-900">Numéro de RIB pour vos dons :</label>
+                    <label class="block text-lg font-medium text-gray-900">Numéro de RIB pour vos dons :</label>
                     <p class="mt-1 text-lg font-semibold text-gray-700">FR76 3000 2005 2500 0000 7654 098</p>
-                    <button onclick="navigator.clipboard.writeText('FR76 3000 2005 2500 0000 7654 098')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <button onclick="navigator.clipboard.writeText('FR76 3000 2005 2500 0000 7654 098')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
                         Copier le RIB
                     </button>
                 </div>
