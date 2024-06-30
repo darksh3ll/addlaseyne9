@@ -855,6 +855,10 @@ select {
   top: 100%;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -1002,6 +1006,10 @@ select {
 
 .mt-\[250px\] {
   margin-top: 250px;
+}
+
+.mt-24 {
+  margin-top: 6rem;
 }
 
 .line-clamp-3 {
@@ -1211,6 +1219,10 @@ select {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.resize {
+  resize: both;
 }
 
 .list-disc {
@@ -1634,6 +1646,11 @@ select {
   padding-bottom: 2rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -2037,6 +2054,11 @@ select {
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.hover\:text-blue-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
