@@ -1,7 +1,9 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 
 urlpatterns = [
-    path('donate/', views.donate, name='donate'),
     path('', views.index, name='index'),
+    path('donate/', views.donate, name='donate'),
+
+  
 ]

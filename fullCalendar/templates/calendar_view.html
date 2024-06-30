@@ -1,0 +1,87 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% tailwind_css %}
+    <title>Calendrier</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.min.js'></script>
+    <style>
+        #calendar-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #calendar {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            #calendar {
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #calendar {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header avec bouton de retour fixe et titre -->
+    <header class="bg-white shadow-md p-4 flex items-center justify-center relative">
+        <!-- Bouton de retour fixe -->
+        <a href="#"
+           class="absolute left-5 bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300 flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Retour
+        </a>
+        <!-- Titre -->
+        <h1 class="text-2xl font-bold text-gray-800">Agenda de l'église</h1>
+    </header>
+
+    <div id="calendar-container" class="bg-white p-6 rounded-lg shadow-lg mt-6">
+        <div id='calendar'></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var events = {{ events|safe }};
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                dayMaxEventRows: true,
+                initialView: 'timeGridWeek',
+                locale: 'fr',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'timeGridWeek,timeGridDay'
+                },
+                allDayText:'',
+                views: {
+                    timeGridWeek: {
+                        buttonText: 'Semaine'
+                    },
+                    timeGridDay: {
+                        buttonText: 'Jour'
+                    }
+                },
+                events: events
+            });
+            calendar.render();
+
+            window.addEventListener('resize', function() {
+                calendar.updateSize();
+            });
+        });
+    </script>
+</body>
+</html>
