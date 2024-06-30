@@ -1,0 +1,27 @@
+<article class="group relative flex flex-col shadow-lg max-w-[400px] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto bg-white rounded-lg overflow-hidden">
+    <div class="relative overflow-hidden flex flex-col justify-start p-6 h-full">
+        <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]"></span>
+        <div class="relative z-10 text-center flex flex-col justify-between h-full">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold hover:text-gray-700 pb-4 line-clamp-3">{{ testimonial.title }}</h3>
+            </div>
+            <div class="flex flex-col items-center">
+                <p class="text-sm pb-1">
+                    <a href="#" class="font-semibold hover:text-gray-800">{{ testimonial.author_name }}</a>
+                </p>
+                <p class="flex items-center justify-center text-sm pb-6">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-6 4h6m-6 0h6m0 4v1a3 3 0 006 0v-1M4 11h16m-2 4v5a2 2 0 002 2H6a2 2 0 01-2-2v-5h16z"></path>
+                    </svg>
+                    {{ testimonial.publication_date }}
+                </p>
+            </div>
+            <div>
+                <p class="pb-6">{{ testimonial.text|truncatewords:30 }}</p>
+                <a href=""
+                class="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600">Continue
+                 -></a>
+            </div>
+        </div>
+    </div>
+</article>

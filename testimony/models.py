@@ -13,5 +13,5 @@ class Testimonial(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Testimonial"
-        verbose_name_plural = "Testimonials"
+        verbose_name = "Témoignage"
+        verbose_name_plural = "Témoignages"
