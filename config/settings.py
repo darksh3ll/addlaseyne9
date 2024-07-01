@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'theme',
     'app',
     'fullCalendar',
-    'testimony'
+    'testimony',
+    'videos'
 ]
 
 MIDDLEWARE = [
