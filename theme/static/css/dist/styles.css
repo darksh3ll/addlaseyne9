@@ -1196,6 +1196,10 @@ select {
   height: 100vh;
 }
 
+.h-0 {
+  height: 0px;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
