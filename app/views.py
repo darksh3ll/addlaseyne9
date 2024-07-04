@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     title = 'lorem10'
-    testimonial_list = Testimonial.objects.all()
+    testimonial_list = Testimonial.objects.filter(is_active=True)
 
     team_members = [
         {"name": "Cyril pouget", "title": "Pasteur principal",
