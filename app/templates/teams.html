@@ -7,13 +7,13 @@
             <div class="flex flex-wrap justify-center text-center mb-24">
                 <div class="w-full lg:w-6/12 px-4">
                     <!-- Header -->
-                    <h1 class="text-gray-900 text-4xl font-bold mb-8">
-                        Meet the Team
+                    <h1 class="text-gray-500 text-4xl font-bold mb-8">
+                        Notre équipes pastorale
                     </h1>
 
                     <!-- Description -->
-                    <p class="text-gray-700 text-lg font-light">
-                        With over 100 years of combined experience, we've got a well-seasoned team at the helm.
+                    <p class="text-gray-400 text-lg font-light">
+                        Des Hommes et des Femmes de Foi à Votre Service
                     </p>
                 </div>
             </div>
@@ -23,23 +23,22 @@
                 {% for member in team_members %}
                 <!-- Member -->
                 <div class="w-full sm:w-6/12 lg:w-1/3 mb-6 px-4">
-                    <div class="flex flex-col">
+                    <div class="flex flex-col items-center justify-center bg-white rounded-2xl shadow-lg h-full">
                         <!-- Avatar -->
-                        <a href="#" class="mx-auto">
-                            <img class="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                src= {{member.image}}>
+                        <a href="#" class="w-full h-64 overflow-hidden rounded-t-2xl">
+                            <img class="w-full h-full object-cover" src="{{ member.image }}" alt="{{ member.name }}">
                         </a>
 
                         <!-- Details -->
-                        <div class="text-center mt-6">
+                        <div class="flex flex-col items-center justify-center p-4">
                             <!-- Name -->
                             <h1 class="text-gray-900 text-xl font-bold mb-1">
-                             {{member.name}}
+                                {{ member.name }}
                             </h1>
 
                             <!-- Title -->
                             <div class="text-gray-700 font-light mb-2">
-                                {{member.title}}
+                                {{ member.title }}
                             </div>
                         </div>
                     </div>

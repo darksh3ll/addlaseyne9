@@ -2098,6 +2098,10 @@ select {
   padding-top: 0.5rem;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2323,6 +2327,11 @@ select {
 .text-yellow-200 {
   --tw-text-opacity: 1;
   color: rgb(254 240 138 / var(--tw-text-opacity));
+}
+
+.text-indigo-100 {
+  --tw-text-opacity: 1;
+  color: rgb(224 231 255 / var(--tw-text-opacity));
 }
 
 .underline {

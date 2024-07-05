@@ -21,6 +21,7 @@ from app.views import index,donate
 urlpatterns = [
     path('',index),
     path('calendar_view/', include('fullCalendar.urls')),
+    path('videos_list/', include('videos.urls')),
     path('testimonial_detail/', include('testimony.urls')),
     path('donate/',donate),
     path('admin/', admin.site.urls),
