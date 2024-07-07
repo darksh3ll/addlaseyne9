@@ -1,8 +1,10 @@
 from django.db import models
 
-# Create your models here.
-class titleNavbar(models.Model):
-    title=models.CharField(max_length=50)
+class TeamMember(models.Model):
+    first_name = models.CharField(max_length=100, verbose_name="First Name", blank=False)
+    last_name = models.CharField(max_length=100, verbose_name="Last Name", blank=False)
+    role = models.CharField(max_length=100, verbose_name="Role", blank=False)
+    image = models.ImageField(upload_to='team_images/', verbose_name="Image", blank=False)
 
     def __str__(self):
-        return self.title
+        return f"{self.first_name} {self.last_name} - {self.role}"
