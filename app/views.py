@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from testimony.models import Testimonial
-from .models import TeamMember
+from .models import TeamMember,GalleryPhoto
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     title = 'lorem10'
     testimonials = Testimonial.objects.filter(is_active=True)
     team_members = TeamMember.objects.all()
+    photo_gallery = GalleryPhoto.objects.all()
     
     # team_members = [
     #     {
@@ -43,6 +44,7 @@ def index(request):
         'address': address,
         'title': title,
         'page_obj': page_obj,
+        'photo_gallery':photo_gallery
     }
     
     return render(request, 'index.html', context)
