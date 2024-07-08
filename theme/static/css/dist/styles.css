@@ -2075,10 +2075,13 @@ select {
   padding-top: 1rem;
 }
 
+<<<<<<< Updated upstream
 .pt-5 {
   padding-top: 1.25rem;
 }
 
+=======
+>>>>>>> Stashed changes
 .text-left {
   text-align: left;
 }
@@ -2306,11 +2309,14 @@ select {
   color: rgb(254 240 138 / var(--tw-text-opacity));
 }
 
+<<<<<<< Updated upstream
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
+=======
+>>>>>>> Stashed changes
 .underline {
   text-decoration-line: underline;
 }
