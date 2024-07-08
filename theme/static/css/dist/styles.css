@@ -932,6 +932,10 @@ select {
   grid-column: span 6 / span 6;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
 .m-10 {
   margin: 2.5rem;
 }
@@ -959,6 +963,11 @@ select {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .-ml-8 {
@@ -1316,13 +1325,10 @@ select {
   width: 100vw;
 }
 
-<<<<<<< HEAD
 .w-4\/5 {
   width: 80%;
 }
 
-=======
->>>>>>> developp
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1456,6 +1462,22 @@ select {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1528,6 +1550,10 @@ select {
 
 .justify-start {
   justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -1865,8 +1891,6 @@ select {
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-=======
->>>>>>> developp
 }
 
 .bg-opacity-50 {
@@ -2067,8 +2091,6 @@ select {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-=======
->>>>>>> developp
 }
 
 .pb-1 {
@@ -2230,6 +2252,10 @@ select {
 
 .leading-normal {
   line-height: 1.5;
+}
+
+.leading-tight {
+  line-height: 1.25;
 }
 
 .tracking-normal {
@@ -2625,14 +2651,11 @@ select {
   background-color: rgb(255 255 255 / 0.2);
 }
 
-<<<<<<< HEAD
 .hover\:bg-gray-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
-=======
->>>>>>> developp
 .hover\:text-fuchsia-600:hover {
   --tw-text-opacity: 1;
   color: rgb(192 38 211 / var(--tw-text-opacity));
@@ -2920,6 +2943,10 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .md\:gap-5 {
+    gap: 1.25rem;
+  }
+
   .md\:p-12 {
     padding: 3rem;
   }
@@ -2956,8 +2983,6 @@ select {
 
   .md\:text-5xl {
     font-size: 3rem;
-=======
->>>>>>> developp
     line-height: 1;
   }
 }
@@ -3064,8 +3089,6 @@ select {
 
   .lg\:w-3\/4 {
     width: 75%;
-=======
->>>>>>> developp
   }
 
   .lg\:max-w-7xl {
@@ -3191,6 +3214,10 @@ select {
     text-align: left;
   }
 
+  .lg\:text-start {
+    text-align: start;
+  }
+
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -3199,6 +3226,21 @@ select {
   .lg\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -3228,8 +3270,6 @@ select {
 
   .xl\:gap-14 {
     gap: 3.5rem;
-=======
->>>>>>> developp
   }
 }
 
