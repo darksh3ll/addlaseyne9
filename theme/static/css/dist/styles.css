@@ -1531,10 +1531,13 @@ select {
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
 .justify-evenly {
   justify-content: space-evenly;
 }
 
+=======
+>>>>>>> team_members
 .justify-items-center {
   justify-items: center;
 }
@@ -1704,10 +1707,6 @@ select {
   border-right-width: 1px;
 }
 
-.border-t {
-  border-top-width: 1px;
-}
-
 .border-blue-700 {
   --tw-border-opacity: 1;
   border-color: rgb(29 78 216 / var(--tw-border-opacity));
@@ -1849,11 +1848,14 @@ select {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+<<<<<<< HEAD
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
+=======
+>>>>>>> team_members
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2648,11 +2650,14 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+<<<<<<< HEAD
 .hover\:drop-shadow-xl:hover {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+=======
+>>>>>>> team_members
 .focus\:z-10:focus {
   z-index: 10;
 }
@@ -2756,20 +2761,8 @@ select {
     margin-top: 1rem;
   }
 
-  .sm\:flex {
-    display: flex;
-  }
-
-  .sm\:hidden {
-    display: none;
-  }
-
   .sm\:h-2\/3 {
     height: 66.666667%;
-  }
-
-  .sm\:w-6\/12 {
-    width: 50%;
   }
 
   .sm\:max-w-2xl {
@@ -2780,6 +2773,7 @@ select {
     max-width: 48rem;
   }
 
+<<<<<<< HEAD
   .sm\:flex-1 {
     flex: 1 1 0%;
   }
@@ -2798,6 +2792,10 @@ select {
 
   .sm\:justify-between {
     justify-content: space-between;
+=======
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+>>>>>>> team_members
   }
 
   .sm\:p-10 {

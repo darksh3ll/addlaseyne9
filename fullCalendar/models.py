@@ -7,3 +7,7 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = "Agenda"
+        verbose_name_plural = "Agenda"
