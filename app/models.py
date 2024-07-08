@@ -8,3 +8,7 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.role}"
+    
+    class Meta:
+        verbose_name = "Equipe"
+        verbose_name_plural = "Equipes"
