@@ -2,48 +2,14 @@
   imageGalleryOpened: false,
   imageGalleryActiveUrl: null,
   imageGalleryImageIndex: null,
-  imageGallery: [
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cfan.eu%2Ffileadmin%2F_processed_%2F1%2Fd%2Fcsm_1987-fire-conference-honkong-2008_c170d06d90.jpg&f=1&nofb=1&ipt=bbefecc17d5c093fe24e8cc5706ab902bc1dd14f6d48a2d675ea78f42393949c&ipo=images',
-          'alt': 'Photo of Mountains'
-      },
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cfan.eu%2Ffileadmin%2F_processed_%2Fd%2F5%2Fcsm_1999-crowd-15-b_ceaf092c00.jpg&f=1&nofb=1&ipt=874be93418d6fe525582a701140d26b053462ebefee05999d8e4c03524b009b3&ipo=images',
-          'alt': 'Photo of Mountains 02'
-      },
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcfan.org.br%2Fimages%2Fquickgal%2F8.jpg&f=1&nofb=1&ipt=e2ceb38b43b5238066d0a6060e3ac33d35021db65e46ecbd12ed1010304a89d6&ipo=images',
-          'alt': 'Photo of Mountains 03'
-      },
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cfan.eu%2Ffileadmin%2Fbilder%2FEvents%2F2021-2022%2FDecapolis_Blog_Zambia%2FSolwezi%2FZambiaDecaplois_Solwesi_Taylor-00410-Day-2.jpg&f=1&nofb=1&ipt=4a4187acace35aeb1c27ccfede0bd6a9c4aabe94d97b97f306275835b69201a3&ipo=images',
-          'alt': 'Photo of Mountains 04'
-      },
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cfan.eu%2Ffileadmin%2F_processed_%2F5%2Fc%2Fcsm_ZambiaDecaplois_Solwesi_Taylor-00228-Day-2_2ebf46149d.jpg&f=1&nofb=1&ipt=1ee11982a0e262d8f2502aaa4c8a608860be73e19ff873b90b01d216118de2d1&ipo=images',
-          'alt': 'Photo of Mountains 05'
-      },
-      {
-          'photo': 'https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          'alt': 'Photo of Mountains 06'
-      },
-      {
-          'photo': 'https://images.unsplash.com/photo-1547382002-b908c9367d83?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          'alt': 'Photo of Mountains 07'
-      },
-      {
-          'photo': 'https://images.unsplash.com/photo-1543702474-2c562b1845eb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          'alt': 'Photo of Mountains 08'
-      },
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cfan.eu%2Ffileadmin%2F_processed_%2F3%2Fb%2Fcsm_Harare-Zimbabwe-17-D2-08193_dde309e268.jpg&f=1&nofb=1&ipt=b5451dc06364f67fec479317bb6c2d610d593bc9e080b4e7071129ae1d670bcf&ipo=images',
-          'alt': 'Photo of Mountains 09'
-      },
-      {
-          'photo': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lifetv.sk%2Fwp-content%2Fuploads%2F2019%2F10%2Fcfan-3.jpg&f=1&nofb=1&ipt=d4e667a2fe8aae6791d2b6456e0fee18d0707a902a3d3df132afc68fa3ad624b&ipo=images',
-          'alt': 'Photo of Mountains 10'
-      }
-  ],
+ imageGallery: [
+          {% for photo in photo_gallery %}
+          {
+              'photo': '{{ photo.image.url }}',
+              'alt': 'Photo uploaded on {{ photo.uploaded_at }}'
+          },
+          {% endfor %}
+      ],
   imageGalleryOpen(event) {
       this.imageGalleryImageIndex = event.target.dataset.index;
       this.imageGalleryActiveUrl = event.target.src;

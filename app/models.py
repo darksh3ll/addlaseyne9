@@ -12,3 +12,11 @@ class TeamMember(models.Model):
     class Meta:
         verbose_name = "Equipe"
         verbose_name_plural = "Equipes"
+
+
+class GalleryPhoto(models.Model):
+    image = models.ImageField(upload_to='gallery_photos/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Photo uploaded on {self.uploaded_at}"
