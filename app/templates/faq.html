@@ -1,70 +1,71 @@
 <div class="w-screen bg-black" x-data="{
-  nextLiveDate: new Date('{{ next_live_date|date:'Y-m-d H:i:s' }}').getTime(),
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-  startCountdown() {
-      const countdown = () => {
-          const now = new Date().getTime();
-          const distance = this.nextLiveDate - now;
+    nextLiveDate: new Date('{{ next_live_date|date:'Y-m-d H:i:s' }}').getTime(),
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    startCountdown() {
+        const countdown = () => {
+            const now = new Date().getTime();
+            const distance = this.nextLiveDate - now;
 
-          this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-          if (distance < 0) {
-              clearInterval(this.interval);
-              // Compte à rebours terminé
-              this.days = this.hours = this.minutes = this.seconds = 0;
-          }
-      };
+            if (distance < 0) {
+                clearInterval(this.interval);
+                // Compte à rebours terminé, masquer le compteur
+                const countdownElement = document.getElementById('countdown-container');
+                if (countdownElement) {
+                    countdownElement.style.display = 'none';
+                }
+            }
+        };
 
-      countdown();
-      this.interval = setInterval(countdown, 1000);
-  }
+        countdown();
+        this.interval = setInterval(countdown, 1000);
+    }
 }" x-init="startCountdown()">
-  <div class="mx-auto max-w-7xl pt-16 sm:pt-24">
-      <div class="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-8">
-          <div class="px-6 sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:flex lg:items-center lg:text-left">
-              <div class="space-y-8">
-                  <div class="space-y-4">
-                      <div class="space-y-2">
-                      
-                          <span class="rounded-full uppercase  bg-pink-500 px-3 py-0.5 text-2xl font-semibold leading-5 text-white">
-                              Direct dans:
-                          </span>
-                          
-                          <div id="countdown" class="text-3xl text-gray-200 text-justify w-full pt-5">
-                              <span x-text="days"></span> jours 
-                              <span x-text="hours"></span> heures 
-                              <span x-text="minutes"></span> minutes 
-                              <span x-text="seconds"></span> secondes
-                          </div>
-                      </div>
-                  </div>
-                  <div class="flex space-x-4 items-center text-white">
-                      <div class="flex items-center space-x-2">
-                          <div class="flex flex-shrink-0 -space-x-1"></div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="flex items-center w-full col-span-6">
-              <div class="px-6 w-full max-w-2xl mx-auto">
-                  <!-- Conteneur avec ratio pour maintenir l'aspect de la vidéo -->
-                  <div class="relative m-10" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
-                      <iframe class="absolute top-0 left-0 w-full h-full"
-                          frameborder="0"
-                          allowfullscreen="1"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          src="https://www.youtube.com/embed/l_PU3JkTng4?si=kaH1E4LP88nwmSPI"
-                          id="widget2">
-                      </iframe>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="mx-auto max-w-7xl pt-16 sm:pt-24">
+        <div class="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-8">
+            <div class="px-6 sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:flex lg:items-center lg:text-left">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <div class="space-y-2" id="countdown-container">
+                            <span class="rounded-full uppercase bg-pink-500 px-3 py-0.5 text-2xl font-semibold leading-5 text-white">
+                                Direct dans:
+                            </span>
+                            <div id="countdown" class="text-3xl text-gray-200 text-justify w-full pt-5">
+                                <span x-text="days"></span> jours 
+                                <span x-text="hours"></span> heures 
+                                <span x-text="minutes"></span> minutes 
+                                <span x-text="seconds"></span> secondes
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 items-center text-white">
+                        <div class="flex items-center space-x-2">
+                            <div class="flex flex-shrink-0 -space-x-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center w-full col-span-6">
+                <div class="px-6 w-full max-w-2xl mx-auto">
+                    <!-- Conteneur avec ratio pour maintenir l'aspect de la vidéo -->
+                    <div class="relative m-10" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
+                        <iframe class="absolute top-0 left-0 w-full h-full"
+                            frameborder="0"
+                            allowfullscreen="1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            src="{{ live_stream.youtube_link }}"
+                            id="widget2">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

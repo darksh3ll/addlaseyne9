@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import URLValidator
 
 class TeamMember(models.Model):
     first_name = models.CharField(max_length=100, verbose_name="First Name", blank=False)
@@ -20,3 +21,25 @@ class GalleryPhoto(models.Model):
 
     def __str__(self):
         return f"Photo uploaded on {self.uploaded_at}"
+    
+
+from django.utils import timezone
+
+class LiveStream(models.Model):
+    title = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255, blank=True)  # Sous-titre
+    start_time = models.DateTimeField()
+    youtube_link = models.URLField(validators=[URLValidator()], unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Diffusion direct"
+        verbose_name_plural = "Diffusion direct"
+
+    def __str__(self):
+        return self.title
+    
+
+
+class Header(models.Model):
+    pass
