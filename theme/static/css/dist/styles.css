@@ -952,10 +952,6 @@ select {
   margin: 2.5rem;
 }
 
-.m-auto {
-  margin: auto;
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1261,20 +1257,12 @@ select {
   min-height: 50svh;
 }
 
-.min-h-screen {
-  min-height: 100vh;
-}
-
-.min-h-\[80svh\] {
-  min-height: 80svh;
-}
-
 .min-h-\[70svh\] {
   min-height: 70svh;
 }
 
-.min-h-\[svh\] {
-  min-height: svh;
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-10 {
