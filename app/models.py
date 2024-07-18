@@ -23,7 +23,7 @@ class GalleryPhoto(models.Model):
     
 
 class CarouselItem(models.Model):
-    img_src = models.ImageField('Image URL',upload_to='carrousel/')
+    img_src = models.ImageField(upload_to='carrousel/')
     title = models.CharField('Title', max_length=255)
     description = models.TextField('Description',max_length=139)
     uploaded_at = models.DateTimeField(auto_now_add=True)
