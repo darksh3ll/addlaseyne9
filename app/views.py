@@ -37,3 +37,7 @@ def index(request):
 
 def donate(request):
     return render(request, 'donate.html')
+
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
