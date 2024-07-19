@@ -5,8 +5,10 @@
     {% tailwind_css %}
     <title>Calendrier</title>
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <link href='https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css' rel='stylesheet'>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
     <style>
         #calendar-container {
             margin: 0 auto;
@@ -88,7 +90,20 @@
                         buttonText: 'Liste'
                     }
                 },
-                events: events
+                events: events,
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault(); // Prevent the browser from following the link
+
+                    Swal.fire({
+                        title: info.event.title,
+                        html: `
+                            <p><strong>Start:</strong> ${info.event.start.toLocaleString()}</p>
+                            ${info.event.end ? `<p><strong>End:</strong> ${info.event.end.toLocaleString()}</p>` : ''}
+                            <p><strong>Description:</strong> ${info.event.extendedProps.description || 'No description'}</p>
+                        `,
+                        icon: 'info'
+                    });
+                }
             });
 
             calendar.render();
