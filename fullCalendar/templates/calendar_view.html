@@ -9,8 +9,6 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.min.js'></script>
     <style>
         #calendar-container {
-            width: 100%;
-            max-width: 1200px;
             margin: 0 auto;
             padding: 10px;
             box-sizing: border-box;
@@ -31,20 +29,29 @@
                 height: 500px;
             }
         }
+
+        @media (max-width: 768px) {
+            .fc-timeGridWeek-button {
+                display: none;
+            }
+        }
     </style>
 </head>
-<body class="bg-gradient-to-r from-neutral-300 to-stone-400 py-16">
+<body class="bg-gradient-to-r from-neutral-300 to-stone-400">
     <!-- Header avec bouton de retour fixe et titre -->
-    <header class= shadow-md p-4 flex items-center justify-center relative">
+    <header class="relative bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-16 shadow-md">
         <!-- Bouton de retour fixe -->
         <a href="/"
-        class="absolute top-5 left-5 bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300 flex items-center">
-         <svg class="w-4 h-4 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-         </svg>
-         Retour
-     </a>
+           class="absolute top-4 left-4 bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300 flex items-center">
+            <svg class="w-4 h-4 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Retour
+        </a>
         <!-- Titre -->
+        <div class="flex justify-center items-center h-full">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">Découvrez tous nos événements</h1>
+        </div>
     </header>
 
     <div id="calendar-container" class="bg-white p-6 rounded-lg shadow-lg mt-6">
@@ -55,14 +62,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var events = {{ events|safe }};
+            
+            function getCalendarView() {
+                return window.innerWidth < 768 ? 'listWeek' : 'timeGridWeek';
+            }
+            
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 dayMaxEventRows: true,
-                initialView: 'timeGridWeek',
+                initialView: getCalendarView(),
                 locale: 'fr',
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'timeGridWeek,timeGridDay'
+                    right: window.innerWidth < 768 ? 'listWeek,timeGridDay' : 'timeGridWeek,timeGridDay,listWeek'
                 },
                 allDayText:'',
                 views: {
@@ -71,14 +83,26 @@
                     },
                     timeGridDay: {
                         buttonText: 'Jour'
+                    },
+                    listWeek: {
+                        buttonText: 'Liste'
                     }
                 },
                 events: events
             });
+
             calendar.render();
 
             window.addEventListener('resize', function() {
-                calendar.updateSize();
+                var newView = getCalendarView();
+                if (calendar.view.type !== newView) {
+                    calendar.changeView(newView);
+                }
+                calendar.setOption('headerToolbar', {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: window.innerWidth < 768 ? 'listWeek,timeGridDay' : 'timeGridWeek,timeGridDay,listWeek'
+                });
             });
         });
     </script>
