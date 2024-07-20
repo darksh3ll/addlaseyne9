@@ -123,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+CSRF_TRUSTED_ORIGINS = [
+    'https://0ef6-93-28-68-57.ngrok-free.app',
+    # Ajoutez d'autres URLs de confiance ici si nécessaire
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
