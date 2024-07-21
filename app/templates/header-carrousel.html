@@ -68,9 +68,9 @@
             <template x-for="(slide, index) in slides">
                 <div x-cloak x-show="currentSlideIndex == index + 1" class="absolute inset-0" x-transition.opacity.duration.1000ms>
                     <!-- Title and description -->
-                    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-gradient-to-t from-slate-900/85 to-transparent p-12 text-center">
+                    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-gradient-to-t from-slate-900/95 to-transparent p-12 text-center">
                         <h3 class="text-2xl lg:text-5xl font-bold text-white" x-text="slide.title" x-bind:aria-describedby="'slide' + (index + 1) + 'Description'"></h3>
-                        <p class="text-lg text-slate-300" x-text="slide.description" x-bind:id="'slide' + (index + 1) + 'Description'"></p>
+                        <p class="text-2xl lg:text-4xl text-slate-300" x-text="slide.description" x-bind:id="'slide' + (index + 1) + 'Description'"></p>
                     </div>
 
                     <img class="absolute w-full h-full object-cover" x-bind:src="slide.imgSrc" x-bind:alt="slide.imgAlt" />
