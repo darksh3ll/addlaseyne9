@@ -37,6 +37,10 @@
                 display: none;
             }
         }
+
+        .fc-event {
+            cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
+        }
     </style>
 </head>
 <body class="bg-gradient-to-r from-neutral-300 to-stone-400">
@@ -57,6 +61,19 @@
     </header>
 
     <div id="calendar-container" class="bg-white p-6 rounded-lg shadow-lg mt-6">
+        <div class="mb-4 text-center text-gray-700">
+            <p class="text-xl font-bold text-indigo-700 bg-yellow-200 p-3 rounded-lg shadow-md inline-block">
+                <svg class="w-6 h-6 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v4h-1m4-4h-1v4h-1m-4 4h-1v-4h-1m4 0h-1v4h-1m4-4h-1v4h-1M7 8V7a5 5 0 015-5h0a5 5 0 015 5v1m-1 8a1 1 0 11-2 0 1 1 0 012 0zM6 8a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H7a1 1 0 01-1-1V8z"></path>
+                </svg>
+                Cliquez sur un événement pour afficher les détails.
+            </p>
+        </div>
+        <div class="mb-4 text-center text-gray-700">
+            <p class="text-lg font-semibold text-blue-900 bg-blue-100 p-4 rounded-lg shadow-lg">
+                Notre calendrier affiche les événements pour les 3 prochains mois afin que vous puissiez planifier à l'avance. Restez informé des prochaines activités et rejoignez-nous pour chaque événement !
+            </p>
+        </div>
         <div id='calendar'></div>
     </div>
 
@@ -97,8 +114,8 @@
                     Swal.fire({
                         title: info.event.title,
                         html: `
-                            <p><strong>Start:</strong> ${info.event.start.toLocaleString()}</p>
-                            ${info.event.end ? `<p><strong>End:</strong> ${info.event.end.toLocaleString()}</p>` : ''}
+                            <p><strong>Début:</strong> ${info.event.start.toLocaleString()}</p>
+                            ${info.event.end ? `<p><strong>Fin:</strong> ${info.event.end.toLocaleString()}</p>` : ''}
                             <p><strong>Description:</strong> ${info.event.extendedProps.description || 'No description'}</p>
                         `,
                         icon: 'info'

@@ -8,6 +8,7 @@ def calendar_view(request):
     for event in events:
         events_list.append({
             'title': event.title,
+            'description': event.description,
             'start': event.start_time.isoformat(),
             'end': event.end_time.isoformat(),
         })
