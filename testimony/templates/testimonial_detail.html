@@ -11,7 +11,7 @@
 <body>
     <div class="max-w-screen-xl mx-auto p-5 sm:p-8 md:p-12 relative ">
         <!-- Bouton de retour fixe -->
-        <a href="/#pagination"
+        <a href="/#pagination" id="back-button"
         class="fixed top-5 left-5 bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300 flex items-center">
          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -47,7 +47,12 @@
     
 </body>
 </html>
-
+<script>
+    document.getElementById('back-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = this.getAttribute('href');
+    });
+</script>
 
 
 
