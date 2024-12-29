@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 CSRF_TRUSTED_ORIGINS = [
-    'https://0ef6-93-28-68-57.ngrok-free.app',
+    'https://51ce-93-28-68-57.ngrok-free.app',
     # Ajoutez d'autres URLs de confiance ici si nécessaire
 ]
 
