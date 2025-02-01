@@ -1,10 +1,10 @@
-<section class="bg-gray-50 py-12">
+<section class="bg-gray-50 min-h-screen flex items-center">
     <div class="container mx-auto px-6 text-center">
         <div class="mb-12 max-w-xl mx-auto">
-            <h2 class="mb-4 text-4xl font-extrabold text-gray-900">Nos pasteurs</h2>
+            <h2 class="mb-4 text-4xl font-extrabold text-gray-900">Notre équipe pastorale</h2>
             <p class="font-light text-gray-600 sm:text-lg">Des Hommes et des Femmes de Foi à Votre Service</p>
         </div>
-        <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
             {% for member in team_members %}
             <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
                 <div class="mx-auto mb-4 w-48 h-48 rounded-full overflow-hidden border-4 border-gray-200 shadow-md">
