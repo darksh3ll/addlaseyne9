@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from testimony.models import Testimonial
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
@@ -9,6 +9,7 @@ def index(request):
     team_members = TeamMember.objects.all()
     photo_gallery = GalleryPhoto.objects.all()
     carousel_items = CarouselItem.objects.all()
+    stream = LiveStream.objects.last()
     # Récupération des informations de l'église
     church_info = ChurchInfo.objects.first()
     
@@ -31,7 +32,8 @@ def index(request):
         'page_obj': page_obj,
         'photo_gallery':photo_gallery,
         'carousel_items':carousel_items,
-        'church_info': church_info
+        'church_info': church_info,
+        'stream':stream
         
     }
 

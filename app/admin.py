@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
@@ -41,3 +41,5 @@ class ChurchInfoAdmin(admin.ModelAdmin):
 admin.site.register(GalleryPhoto)
 
 admin.site.register(CarouselItem)
+
+admin.site.register(LiveStream)

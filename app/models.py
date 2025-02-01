@@ -59,3 +59,11 @@ class ChurchInfo(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class LiveStream(models.Model):
+    iframe_code = models.TextField(verbose_name="Code Iframe")
+
+    def __str__(self):
+        return "Live Stream"
