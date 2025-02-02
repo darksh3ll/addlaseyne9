@@ -67,3 +67,15 @@ class LiveStream(models.Model):
 
     def __str__(self):
         return "Live Stream"
+
+
+class LatestYouTubeVideo(models.Model):
+    video_embed_url = models.URLField(
+        "URL intégrée de la dernière vidéo",
+        help_text="Collez ici l'URL du format iframe YouTube (ex: https://www.youtube.com/embed/VIDEO_ID)."
+    )
+
+    def __str__(self):
+        return f"Dernière vidéo : {self.video_embed_url}"
+
+        

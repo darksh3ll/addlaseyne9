@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
@@ -43,3 +43,7 @@ admin.site.register(GalleryPhoto)
 admin.site.register(CarouselItem)
 
 admin.site.register(LiveStream)
+
+@admin.register(LatestYouTubeVideo)
+class LatestYouTubeVideoAdmin(admin.ModelAdmin):
+    list_display = ("video_embed_url",)
