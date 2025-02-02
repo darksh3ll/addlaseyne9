@@ -78,4 +78,14 @@ class LatestYouTubeVideo(models.Model):
     def __str__(self):
         return f"Dernière vidéo : {self.video_embed_url}"
 
-        
+    
+class ChurchSchedule(models.Model):
+    image = models.ImageField(
+        "Image des horaires",
+        upload_to="church_schedules/",
+        help_text="Téléchargez une image contenant les horaires de l'église."
+    )
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Horaires de l'église ({self.uploaded_at.strftime('%d/%m/%Y')})"

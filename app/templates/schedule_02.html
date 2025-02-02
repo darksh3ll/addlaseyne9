@@ -1,0 +1,15 @@
+<div class="bg-gradient-to-r from-blue-500 to-teal-500 py-16">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-white mb-8 text-center">DÉCOUVREZ NOS HORAIRES</h2>
+
+        <!-- ✅ Afficher l'image des horaires -->
+        <div class="flex justify-center">
+            {% if schedule%}
+                <img src="{{ schedule.image.url }}" alt="Horaires de l'église" 
+                     class="rounded-lg shadow-lg max-w-full h-auto border-4 border-white" />
+            {% else %}
+                <p class="text-white text-center">Aucune image des horaires n'est disponible pour le moment.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
