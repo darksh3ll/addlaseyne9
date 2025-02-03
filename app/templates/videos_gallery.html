@@ -1,29 +1,35 @@
 <div class="bg-gradient-to-r from-fuchsia-600 to-purple-600 py-16">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-white mb-8 text-center">DERNIÈRE VIDÉO DE NOTRE CHAÎNE</h2>
-        
-        <!-- ✅ Centrage et agrandissement de la vidéo -->
-        <div class="flex justify-center">
-            <div class="w-full max-w-4xl">
-                {% if latest_video %}
-                    <iframe class="w-full h-[500px] rounded-lg shadow-xl" 
-                            src="{{ latest_video.video_embed_url }}" 
-                            frameborder="0" allowfullscreen></iframe>
-                {% else %}
-                    <p class="text-white text-center">Aucune vidéo disponible.</p>
-                {% endif %}
-            </div>
-        </div>
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-white mb-8 text-center">
+      DERNIÈRE VIDÉO DE NOTRE CHAÎNE
+    </h2>
 
-        <!-- ✅ Bouton pour voir la chaîne YouTube -->
-        <div class="flex justify-center mt-8">
-            <a href="{{ church_info.youtube }}" target="_blank"
-               class="bg-red-600 text-white font-bold py-4 px-8 rounded-lg inline-flex items-center hover:bg-red-700 transition shadow-lg text-lg">
-                <svg class="w-6 h-6 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19.6,4.2c-0.2-0.6-0.8-1.1-1.4-1.3C16.7,2.5,12,2.5,12,2.5s-4.7,0-6.2,0.3C5.2,2.9,4.6,3.4,4.4,4 C4.2,5.5,4.2,9.1,4.2,9.1s0,3.6,0.2,5.1c0.2,0.6,0.8,1.1,1.4,1.3c1.5,0.3,6.2,0.3,6.2,0.3s4.7,0,6.2-0.3 c0.6-0.2,1.2-0.7,1.4-1.3c0.2-1.5,0.2-5.1,0.2-5.1S19.8,5.7,19.6,4.2z M10.2,13.7V7.2l5.6,3.2L10.2,13.7z"/>
-                </svg>
-                <span>Rejoignez-nous sur YouTube</span>
-            </a>
+    <!-- ✅ Conteneur responsif pour la vidéo -->
+    <div class="flex justify-center">
+      <div class="w-full max-w-4xl">
+        {% if latest_video %}
+        <div class="relative w-full" style="padding-top: 56.25%">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-lg shadow-xl"
+            src="{{ latest_video.video_embed_url }}"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
         </div>
+        {% else %}
+        <p class="text-white text-center">Aucune vidéo disponible.</p>
+        {% endif %}
+      </div>
     </div>
+
+    <!-- ✅ Bouton pour voir la chaîne YouTube -->
+    <div class="flex justify-center mt-8">
+      <a
+        href="{{ church_info.youtube }}"
+        class="bg-red-600 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-red-700 transition shadow-lg text-base md:text-lg"
+      >
+        Rejoignez-nous sur YouTube
+      </a>
+    </div>
+  </div>
 </div>
