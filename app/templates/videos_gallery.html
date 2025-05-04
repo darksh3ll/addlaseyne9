@@ -1,23 +1,35 @@
 <div class="bg-gradient-to-r from-fuchsia-600 to-purple-600 py-16">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-white mb-8">NOS DERNIERS MESSAGES</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="relative overflow-hidden">
-                <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="relative overflow-hidden">
-                <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="relative overflow-hidden">
-                <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-            </div>
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-white mb-8 text-center">
+      DERNIÈRE VIDÉO DE NOTRE CHAÎNE
+    </h2>
+
+    <!-- ✅ Conteneur responsif pour la vidéo -->
+    <div class="flex justify-center">
+      <div class="w-full max-w-4xl">
+        {% if latest_video %}
+        <div class="relative w-full" style="padding-top: 56.25%">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-lg shadow-xl"
+            src="{{ latest_video.video_embed_url }}"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
         </div>
-        <div class="flex justify-center mt-8">
-            <a href="videos_list" class="bg-transparent border border-white text-white font-bold py-3 px-6 rounded-lg inline-flex items-center hover:bg-white hover:text-fuchsia-600 transition">
-                <svg class="fill-current w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span>Plus de vidéos</span>
-            </a>
-        </div>
+        {% else %}
+        <p class="text-white text-center">Aucune vidéo disponible.</p>
+        {% endif %}
+      </div>
     </div>
 
+    <!-- ✅ Bouton pour voir la chaîne YouTube -->
+    <div class="flex justify-center mt-8">
+      <a
+        href="{{ church_info.youtube }}"
+        class="bg-red-600 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-red-700 transition shadow-lg text-base md:text-lg"
+      >
+        Rejoignez-nous sur YouTube
+      </a>
+    </div>
+  </div>
 </div>
