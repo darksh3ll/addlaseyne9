@@ -1,17 +1,56 @@
-<div id="schedule" class="bg-gradient-to-r from-blue-500 to-teal-500 py-16">
+<div id="schedule" class="bg-gradient-to-r from-blue-500 to-teal-500 py-16" x-data="{ open: false, imageUrl: '' }">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-white mb-8 text-center">DÉCOUVREZ NOS HORAIRES</h2>
-
-        <!-- ✅ Afficher les images des horaires -->
-        <div class="flex flex-wrap justify-center gap-6">
-            {% if schedule %}
-                {% for item in schedule %}
-                    <img src="{{ item.image.url }}" alt="Horaire {{ forloop.counter }}" 
-                         class="rounded-lg shadow-lg w-90 h-auto border-4 border-white" />
-                {% endfor %}
-            {% else %}
-                <p class="text-white text-center">Aucune image des horaires n'est disponible pour le moment.</p>
-            {% endif %}
-        </div>
+      <h2 class="text-4xl font-bold text-white mb-8 text-center">Nos Rendez-vous : Horaires & Événements</h2>
+  
+      {% if schedule %}
+        {% if schedule|length == 1 %}
+          <!-- ✅ 1 seule image = pleine largeur -->
+          <div class="w-full max-w-4xl mx-auto">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform hover:scale-105"
+                 @click="open = true; imageUrl = '{{ schedule.0.image.url }}'">
+              <img src="{{ schedule.0.image.url }}" alt="Horaire 1" class="w-full h-auto object-contain" />
+            </div>
+          </div>
+  
+        {% elif schedule|length == 2 %}
+          <!-- ✅ 2 images = moitié/moitié -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% for item in schedule %}
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform hover:scale-105"
+                 @click="open = true; imageUrl = '{{ item.image.url }}'">
+              <img src="{{ item.image.url }}" alt="Horaire {{ forloop.counter }}" class="w-full h-auto object-contain" />
+            </div>
+            {% endfor %}
+          </div>
+  
+        {% else %}
+          <!-- ✅ 3+ images : les 2 premières sur la première ligne, les autres en dessous -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% for item in schedule %}
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform hover:scale-105"
+                 @click="open = true; imageUrl = '{{ item.image.url }}'">
+              <img src="{{ item.image.url }}" alt="Horaire {{ forloop.counter }}" class="w-full h-auto object-contain" />
+            </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% else %}
+        <p class="text-white text-center">Aucune image des horaires n'est disponible pour le moment.</p>
+      {% endif %}
     </div>
-</div>
+  
+    <!-- ✅ Lightbox -->
+    <div
+      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300"
+      x-show="open"
+      x-transition
+    >
+      <div class="relative max-w-full max-h-full px-4">
+        <button class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500"
+                @click="open = false">&times;</button>
+        <img :src="imageUrl" alt="Image agrandie"
+             class="max-w-full max-h-screen rounded-lg shadow-xl" />
+      </div>
+    </div>
+  </div>
+  
