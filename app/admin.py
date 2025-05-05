@@ -47,6 +47,7 @@ admin.site.register(LiveStream)
 @admin.register(LatestYouTubeVideo)
 class LatestYouTubeVideoAdmin(admin.ModelAdmin):
     list_display = ("video_embed_url",)
+    
 
 @admin.register(ChurchSchedule)
 class ChurchScheduleAdmin(admin.ModelAdmin):
