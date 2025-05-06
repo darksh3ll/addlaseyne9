@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 def index(request):
     title = 'lorem10'
