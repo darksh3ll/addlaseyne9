@@ -1,145 +1,130 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% tailwind_css %}
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- CSS -->
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <title>Document</title>
 
-<!-- JavaScript -->
-<script src defer="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- Tailwind CSS (via django-tailwind) -->
+    {% tailwind_css %}
 
+    <!-- Styles CSS locaux -->
+    <link rel="stylesheet" href="{% static 'css/flickity.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+
+    <!-- Alpine Plugins (Focus + Collapse) AVANT AlpineJS -->
+    <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- JS locaux -->
+    <script defer src="{% static 'js/alpine.min.js' %}"></script>
+    <script defer src="{% static 'js/flickity.pkgd.min.js' %}"></script>
+    <script defer src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+    <!-- Styles supplémentaires -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        #progressContainer {
+            width: 100%;
+            height: 8px;
+            background: #f3f4f6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        #progressBar {
+            height: 8px;
+            background: #3730a3;
+            width: 0%;
+        }
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+    </style>
 </head>
 
-<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<body>
+    <!-- Animation de fond -->
+    <div class="animated-bg"></div>
 
-
-
-    <title>Document</title>
-  </head>
-  <body>
-
-     <!-- Background Animation -->
-  <div class="animated-bg"></div>
-    <!-- Progress Bar -->
-<div id="progressContainer" class="w-full bg-gray-200 fixed top-0 z-50">
-  <div id="progressBar" class="h-1 bg-blue-600"></div>
-</div>
-    
-  <div class="content">
-      {% include "navbar.html" %}
-      {% include "carousel_home.html" %}
-      {% include "jesus_at_the_door.html" %}
-      {% include "about.html" %}
-      {% include "video_explore.html" %}
-      {% include "services_and_missions.html" %}
-      {% include "pastoral_team.html" %}
-      {% include "photo_gallery.html" %}
-      {% include "live_stream.html" %}
-      {% include "youtube_embed_latest.html" %}
-      {% include "youtube_testimonies.html" %}
-      {% include "church_schedule.html" %}
-      {% include "church_location_map.html" %}
-      {% include "contact.html" %}
+    <!-- Barre de progression -->
+    <div id="progressContainer">
+        <div id="progressBar"></div>
     </div>
-     <!-- Bouton pour remonter en haut de la page -->
-     <button id="scrollToTopBtn" class="scroll-to-top-btn bg-indigo-500 hover:bg-indigo-900 p-4 rounded-full shadow-lg flex items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-      <svg class="animate-pulse text-white" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-        <!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-        <path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
-      </svg>
+
+    <!-- Contenu principal -->
+    <div class="content">
+        {% include "navbar.html" %}
+        {% include "carousel_home.html" %}
+        {% include "jesus_at_the_door.html" %}
+        {% include "about.html" %}
+        {% include "video_explore.html" %}
+        {% include "services_and_missions.html" %}
+        {% include "pastoral_team.html" %}
+        {% include "photo_gallery.html" %}
+        {% include "live_stream.html" %}
+        {% include "youtube_embed_latest.html" %}
+        {% include "youtube_testimonies.html" %}
+        {% include "church_schedule.html" %}
+        {% include "church_location_map.html" %}
+        {% include "contact.html" %}
+    </div>
+
+    <!-- Bouton scroll-to-top -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+        <svg class="animate-pulse text-white" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+        </svg>
     </button>
-    
-    
-    
-  </body>
+
+    <!-- Script JS scroll/progress -->
+    <script>
+        window.onscroll = function () {
+            scrollFunction();
+            scrollProgressFunction();
+        };
+
+        function scrollFunction() {
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        document.getElementById("scrollToTopBtn").onclick = function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        function scrollProgressFunction() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+    </script>
+</body>
 </html>
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-  .content {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-  }
-  @keyframes gradientBG {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  #progressContainer {
-    width: 100%;
-    height: 8px;
-    background: #f3f4f6;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-  }
-  #progressBar {
-    height: 8px;
-    background: #3730a3;
-    width: 0%;
-  }
-  .scroll-to-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4a90e2;Pour la section Horaires, vous pouvez déjà en avoir un aperçu sur le site — j’y ai intégré quelques images.
-    Je trouve que c’est plus agréable visuellement et bien plus simple à modifier que le calendrier que j’avais mis au départ.
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    display: none; /* Caché par défaut */
-    z-index: 1000; /* Assurez-vous que le bouton est au-dessus des autres éléments */
-  }
-</style>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  // Fonction pour montrer le bouton quand on défile
-  window.onscroll = function() {
-    scrollFunction();
-    scrollProgressFunction();
-  };
-
-  function scrollFunction() {
-    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      scrollToTopBtn.style.display = "block";
-    } else {
-      scrollToTopBtn.style.display = "none";
-    }
-  }
-
-  // Fonction pour défiler vers le haut quand le bouton est cliqué
-  document.getElementById("scrollToTopBtn").onclick = function() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  };
-
-  // Fonction de la barre de progression de défilement
-  function scrollProgressFunction() {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
-  }
-</script>
