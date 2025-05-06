@@ -10,6 +10,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
 class ChurchInfoAdmin(admin.ModelAdmin):
     list_display = (
         'name', 
+        'logo',
         'street_number', 
         'street_name', 
         'city', 
@@ -28,7 +29,7 @@ class ChurchInfoAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Informations Générales', {
-            'fields': ('name', 'street_number', 'street_name', 'city', 'postal_code', 'country', 'phone', 'mobile_phone', 'email', 'rib_number')
+            'fields': ('name','logo', 'street_number', 'street_name', 'city', 'postal_code', 'country', 'phone', 'mobile_phone', 'email', 'rib_number')
         }),
         ('Réseaux Sociaux', {
             'fields': ('facebook', 'instagram', 'twitter', 'youtube')
