@@ -122,3 +122,47 @@ class ChurchSchedule(models.Model):
 
     def __str__(self):
         return f"Horaires de l'église ({self.uploaded_at.strftime('%d/%m/%Y')})"
+
+
+class GlobalSiteImages(models.Model):
+    jesus_at_the_door = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - Jésus à la porte"
+    )
+
+    about = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - À propos"
+    )
+
+    video_explore = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - Vidéo 'Explorez notre Église'"
+    )
+
+    services_and_missions_kids_teaching = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - Enseignement des enfants et des jeunes"
+    )
+
+    services_and_missions_baptism = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - Baptême par immersion"
+    )
+
+    services_and_missions_evangelisation = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - Évangélisation"
+    )
+
+    services_and_missions_edification = models.ImageField(
+        upload_to='global_images/',
+        verbose_name="Image - Édification"
+    )
+
+    class Meta:
+        verbose_name = "Image globale du site"
+        verbose_name_plural = "Images globales du site"
+
+    def __str__(self):
+        return "Images globales du site"

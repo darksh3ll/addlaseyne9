@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule,GlobalSiteImages
+
 
 
 def index(request):
@@ -12,6 +13,7 @@ def index(request):
     church_info = ChurchInfo.objects.first()
     latest_video = LatestYouTubeVideo.objects.last()
     schedule = ChurchSchedule.objects.all()
+    global_images = GlobalSiteImages.objects.first()
     
     context = {
         'team_members': team_members,
@@ -22,6 +24,7 @@ def index(request):
         'stream':stream,
         'latest_video':latest_video,
         "schedule": schedule,
+        'global_images': global_images,
         
     }
 

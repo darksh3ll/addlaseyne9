@@ -1,11 +1,14 @@
 <!-- Composant "Qui sommes-nous ?" avec dropdown -->
 <div id="about" class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
   <!-- Image de fond -->
+  {% if global_images and global_images.about %}
   <div
-    class="bg-cover bg-center text-center overflow-hidden"
-    style="min-height: 500px; background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80');"
-    title="Image d'en-tête">
+    class="bg-cover bg-center text-white flex items-center justify-center"
+    style="min-height: 500px; background-image: url('{{ global_images.about.url }}');"
+    title="À propos de notre église">
+    <h2 class="text-4xl font-bold bg-black/50 px-6 py-3 rounded shadow">À propos de notre Église</h2>
   </div>
+{% endif %}
 
   <!-- Bloc principal -->
   <div class="max-w-3xl mx-auto">
