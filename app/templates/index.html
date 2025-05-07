@@ -1,21 +1,32 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="fr">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>ADD La Seyne-sur-Mer | Église Évangélique Pentecôtiste</title>
+    <meta
+      name="description"
+      content="Site officiel de l'Église ADD La Seyne-sur-Mer. Retrouvez nos horaires, vidéos, photos, et témoignages. Venez rencontrer Jésus-Christ."
+    />
+    <meta name="author" content="Église ADD La Seyne-sur-Mer" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {# ✅ Favicon dynamique ou fallback statique #} {% if church_info.logo %}
+    <link rel="icon" type="image/png" href="{{ church_info.logo.url }}" />
+    {% endif %}
 
     <!-- Tailwind CSS (via django-tailwind) -->
     {% tailwind_css %}
 
     <!-- Styles CSS locaux -->
-    <link rel="stylesheet" href="{% static 'css/flickity.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flickity.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
 
     <!-- Alpine Plugins (Focus + Collapse) AVANT AlpineJS -->
-    <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="{% static 'js/focus.min.js' %}"></script>
+    <script defer src="{% static 'js/collapse.min.js' %}"></script>
 
     <!-- JS locaux -->
     <script defer src="{% static 'js/alpine.min.js' %}"></script>
@@ -24,107 +35,115 @@
 
     <!-- Styles supplémentaires -->
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-        #progressContainer {
-            width: 100%;
-            height: 8px;
-            background: #f3f4f6;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        #progressBar {
-            height: 8px;
-            background: #3730a3;
-            width: 0%;
-        }
-        .scroll-to-top-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
-            cursor: pointer;
-            display: none;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+      #progressContainer {
+        width: 100%;
+        height: 8px;
+        background: #f3f4f6;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      #progressBar {
+        height: 8px;
+        background: #3730a3;
+        width: 0%;
+      }
+      .scroll-to-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Animation de fond -->
     <div class="animated-bg"></div>
 
     <!-- Barre de progression -->
     <div id="progressContainer">
-        <div id="progressBar"></div>
+      <div id="progressBar"></div>
     </div>
 
     <!-- Contenu principal -->
     <div class="content">
-        {% include "navbar.html"%}
-        {% include "carousel_home.html" %}
-        {% include "jesus_at_the_door.html" %}
-        {% include "about.html" %}
-        {% include "video_explore.html" %}
-        {% include "services_and_missions.html" %}
-        {% include "pastoral_team.html" %}
-        {% include "photo_gallery.html" %}
-        {% include "live_stream.html" %}
-        {% include "youtube_embed_latest.html" %}
-        {% include "youtube_testimonies.html" %}
-        {% include "church_schedule.html" %}
-        {% include "church_location_map.html" %}
-        {% include "contact.html" %}
+      {% include "navbar.html"%} {% include "carousel_home.html" %} {% include
+      "jesus_at_the_door.html" %} {% include "about.html" %} {% include
+      "video_explore.html" %} {% include "services_and_missions.html" %} {%
+      include "pastoral_team.html" %} {% include "photo_gallery.html" %} {%
+      include "live_stream.html" %} {% include "youtube_embed_latest.html" %} {%
+      include "youtube_testimonies.html" %} {% include "church_schedule.html" %}
+      {% include "church_location_map.html" %} {% include "contact.html" %}
     </div>
 
     <!-- Bouton scroll-to-top -->
     <button id="scrollToTopBtn" class="scroll-to-top-btn">
-        <svg class="animate-pulse text-white" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-            <path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
-        </svg>
+      <svg
+        class="animate-pulse text-white"
+        width="50"
+        height="50"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+      >
+        <path
+          fill="currentColor"
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+        />
+      </svg>
     </button>
 
     <!-- Script JS scroll/progress -->
     <script>
-        window.onscroll = function () {
-            scrollFunction();
-            scrollProgressFunction();
-        };
+      window.onscroll = function () {
+        scrollFunction();
+        scrollProgressFunction();
+      };
 
-        function scrollFunction() {
-            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
+      function scrollFunction() {
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
         }
+      }
 
-        document.getElementById("scrollToTopBtn").onclick = function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+      document.getElementById("scrollToTopBtn").onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
 
-        function scrollProgressFunction() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        }
+      function scrollProgressFunction() {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      }
     </script>
-</body>
+  </body>
 </html>

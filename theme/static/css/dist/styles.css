@@ -1122,6 +1122,10 @@ select {
   height: 12rem;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .max-h-\[90\%\] {
   max-height: 90%;
 }
@@ -1628,6 +1632,11 @@ select {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
+.bg-indigo-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1948,6 +1957,10 @@ select {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[120px\] {
+  font-size: 120px;
 }
 
 .font-bold {

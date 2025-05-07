@@ -4,11 +4,11 @@
         <a href="/" class="flex items-center space-x-3">
           {% if church_info.logo %}
             <img
-              width="80"
-              height="80"
+              width="100"
+              height="100"
               src="{{ church_info.logo.url }}"
               alt="Logo {{ church_info.name }}"
-              class="h-8 w-auto object-contain"
+              class="h-24 w-auto object-contain"
             />
           {% endif %}
         <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">{{church_info.name}}</a>
