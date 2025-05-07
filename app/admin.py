@@ -24,6 +24,7 @@ class ChurchInfoAdmin(admin.ModelAdmin):
         'instagram', 
         'twitter', 
         'youtube', 
+        'youtube_playlist',
         'google_maps_url'
     )
 
@@ -32,7 +33,7 @@ class ChurchInfoAdmin(admin.ModelAdmin):
             'fields': ('name','logo', 'street_number', 'street_name', 'city', 'postal_code', 'country', 'phone', 'mobile_phone', 'email', 'rib_number')
         }),
         ('Réseaux Sociaux', {
-            'fields': ('facebook', 'instagram', 'twitter', 'youtube')
+            'fields': ('facebook', 'instagram', 'twitter', 'youtube','youtube_playlist',)
         }),
         ('Autres', {
             'fields': ('google_maps_url',)

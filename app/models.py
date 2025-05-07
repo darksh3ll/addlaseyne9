@@ -71,6 +71,8 @@ class ChurchInfo(models.Model):
     twitter = models.URLField(verbose_name="Twitter", blank=True)
     # Nouveau champ pour YouTube
     youtube = models.URLField(verbose_name="YouTube", blank=True)
+    youtube_playlist = models.URLField(verbose_name="Playlist YouTube", blank=True)
+
     # Nouveau champ pour Google Maps
     google_maps_url = models.URLField(verbose_name="Google Maps URL", max_length=500, blank=True)
     logo = models.ImageField(
