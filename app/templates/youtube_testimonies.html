@@ -12,72 +12,37 @@
       </p>
     </div>
 
-    <!-- Galerie de vidéos -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      <!-- Carte vidéo -->
+    <!-- Dernier témoignage vidéo -->
+    {% if latest_video %}
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-lg text-gray-700 font-semibold mb-4">
+        🎥 Dernier témoignage vidéo publié sur notre chaîne :
+      </p>
       <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
         <div class="relative pb-[56.25%]">
-          <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+          <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            src="https://www.youtube.com/embed/{{ latest_video.video_id }}"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
-
-      <!-- Répéter 9 autres fois -->
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-        <div class="relative pb-[56.25%]">
-          <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Tu complètes avec tes autres vidéos -->
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-        <div class="relative pb-[56.25%]">
-          <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-         <!-- Tu complètes avec tes autres vidéos -->
-         <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-          <div class="relative pb-[56.25%]">
-            <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-           <!-- Tu complètes avec tes autres vidéos -->
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-        <div class="relative pb-[56.25%]">
-          <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-         <!-- Tu complètes avec tes autres vidéos -->
-         <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-          <div class="relative pb-[56.25%]">
-            <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/QxqKw-XWioI?si=lGzvuNaGcq2zRpdf" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-
-           <!-- Tu complètes avec tes autres vidéos -->
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-        <div class="relative pb-[56.25%]">
-          <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/QxqKw-XWioI?si=lGzvuNaGcq2zRpdf" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-         <!-- Tu complètes avec tes autres vidéos -->
-         <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transition duration-300">
-          <div class="relative pb-[56.25%]">
-            <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/QxqKw-XWioI?si=lGzvuNaGcq2zRpdf" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-
-
-      <!-- ... jusqu'à 10 -->
     </div>
-  </div>
-  <div class="flex justify-center mt-8">
-    <a
-      href="{{ church_info.youtube_playlist}}"
-      class="bg-red-600 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-red-700 transition shadow-lg text-base md:text-lg"
-    >
-    Explorer davantage de vies transformées
-    </a>
+    {% else %}
+    <p class="text-center text-gray-500 text-lg mt-4">Aucun témoignage vidéo n'est disponible pour le moment.</p>
+    {% endif %}
+
+    <!-- Bouton vers la playlist -->
+    <div class="flex justify-center mt-10">
+      <a
+        href="{{ church_info.youtube_playlist }}"
+        class="bg-red-600 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-red-700 transition shadow-lg text-base md:text-lg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Voir tous les témoignages sur notre chaîne YouTube →
+      </a>
+    </div>
   </div>
 </section>
