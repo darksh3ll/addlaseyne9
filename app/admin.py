@@ -1,7 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule
-
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule,GlobalSiteImages
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'role')
@@ -11,6 +10,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
 class ChurchInfoAdmin(admin.ModelAdmin):
     list_display = (
         'name', 
+        'logo',
         'street_number', 
         'street_name', 
         'city', 
@@ -24,15 +24,16 @@ class ChurchInfoAdmin(admin.ModelAdmin):
         'instagram', 
         'twitter', 
         'youtube', 
+        'youtube_playlist',
         'google_maps_url'
     )
 
     fieldsets = (
         ('Informations Générales', {
-            'fields': ('name', 'street_number', 'street_name', 'city', 'postal_code', 'country', 'phone', 'mobile_phone', 'email', 'rib_number')
+            'fields': ('name','logo', 'street_number', 'street_name', 'city', 'postal_code', 'country', 'phone', 'mobile_phone', 'email', 'rib_number')
         }),
         ('Réseaux Sociaux', {
-            'fields': ('facebook', 'instagram', 'twitter', 'youtube')
+            'fields': ('facebook', 'instagram', 'twitter', 'youtube','youtube_playlist',)
         }),
         ('Autres', {
             'fields': ('google_maps_url',)
@@ -52,3 +53,10 @@ class LatestYouTubeVideoAdmin(admin.ModelAdmin):
 @admin.register(ChurchSchedule)
 class ChurchScheduleAdmin(admin.ModelAdmin):
     list_display = ("image", "uploaded_at")
+
+
+
+
+@admin.register(GlobalSiteImages)
+class GlobalSiteImagesAdmin(admin.ModelAdmin):
+    list_display = ('__str__',)

@@ -17,7 +17,12 @@
           <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-indigo-700 lg:hidden"></div>
           <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
             <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-              <img class="object-cover lg:h-full lg:w-full" src="https://media.istockphoto.com/id/1372742257/fr/photo/loisirs-d%C3%A9t%C3%A9-%C3%A0-la-plage.jpg?s=2048x2048&w=is&k=20&c=0coUR4aNGGkorIhTlmGz28a1q1IE7j2V3Y9wkBqZJck=" alt="Activités et rencontres des jeunes">
+              {% if global_images.services_and_missions_kids_teaching %}
+              <img
+                class="object-cover lg:h-full lg:w-full rounded-xl shadow-xl"
+                src="{{ global_images.services_and_missions_kids_teaching.url }}"
+                alt="Enseignement des enfants et des jeunes">
+            {% endif %}
             </div>
           </div>
         </div>
@@ -49,7 +54,13 @@
           <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-indigo-700 lg:hidden"></div>
           <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
             <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-              <img class="object-cover lg:h-full lg:w-full" src="https://images.pexels.com/photos/4400903/pexels-photo-4400903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Le baptême d’eau par immersion">
+              {% if global_images.services_and_missions_baptism %}
+              <img
+                class="object-cover lg:h-full lg:w-full rounded-xl shadow-xl"
+                src="{{ global_images.services_and_missions_baptism.url }}"
+                alt="Baptême par immersion">
+            {% endif %}
+            
             </div>
           </div>
         </div>
@@ -82,7 +93,12 @@
           <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-indigo-700 lg:hidden"></div>
           <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
             <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-              <img class="object-cover lg:h-full lg:w-full" src="https://images.pexels.com/photos/16662142/pexels-photo-16662142/free-photo-of-reunion-rencontre-groupe-religion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Evangélisation">
+              {% if global_images.services_and_missions_evangelisation %}
+              <img
+                class="object-cover lg:h-full lg:w-full rounded-xl shadow-xl"
+                src="{{ global_images.services_and_missions_evangelisation.url }}"
+                alt="Évangélisation">
+            {% endif %}
             </div>
           </div>
         </div>
@@ -119,7 +135,12 @@
           <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-indigo-700 lg:hidden"></div>
           <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
             <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-              <img class="object-cover lg:h-full lg:w-full" src="https://images.pexels.com/photos/272337/pexels-photo-272337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Edifications">
+              {% if global_images.services_and_missions_edification %}
+              <img
+                class="object-cover lg:h-full lg:w-full rounded-xl shadow-xl"
+                src="{{ global_images.services_and_missions_edification.url }}"
+                alt="Édification">
+            {% endif %}
             </div>
           </div>
         </div>

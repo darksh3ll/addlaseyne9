@@ -1,25 +1,47 @@
 <div id="schedule" class="bg-white dark:bg-gray-800 py-16" x-data="{ open: false, imageUrl: '' }">
   <div class="mx-auto max-w-screen-xl px-4 md:px-8">
-    <div class="mb-12 text-center">
+    <div class="mb-6 text-center">
       <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
         Nos Rendez-vous : Horaires & Événements
       </h2>
     </div>
 
     {% if schedule %}
-    <div class="flex flex-wrap justify-center gap-6">
-      {% for item in schedule %}
-      <div class="group relative flex w-full sm:w-[48%] max-w-[500px] h-72 sm:h-96 items-end overflow-hidden rounded-xl bg-gray-100 shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
-           @click="open = true; imageUrl = '{{ item.image.url }}'">
-        <img src="{{ item.image.url }}"
-             loading="lazy"
-             alt="Événement {{ forloop.counter }}"
-             class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-110" />
 
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-50"></div>
+    <!-- ✅ Indicateur mobile -->
+    <p class="text-center text-sm text-gray-500 sm:hidden mb-4 animate-pulse">
+      Faites glisser pour voir plus →
+    </p>
+
+    <!-- ✅ Carrousel avec scroll horizontal et flèches -->
+    <div class="relative">
+      <div class="overflow-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200"
+           x-ref="scrollContainer">
+        <div class="flex space-x-4 pb-4">
+          {% for item in schedule %}
+          <div class="flex-shrink-0 w-72 sm:w-80 rounded-xl overflow-hidden bg-white dark:bg-gray-700 shadow-md cursor-pointer transition-transform hover:scale-105"
+               @click="open = true; imageUrl = '{{ item.image.url }}'">
+            <img src="{{ item.image.url }}"
+                 alt="Événement {{ forloop.counter }}"
+                 class="w-full h-48 object-contain bg-black" />
+          </div>
+          {% endfor %}
+        </div>
       </div>
-      {% endfor %}
+
+      <!-- ✅ Flèche gauche (desktop uniquement) -->
+      <button class="hidden sm:flex absolute top-1/2 left-0 -translate-y-1/2 z-10 bg-gray-900 text-white p-2 rounded-full hover:bg-gray-700"
+              @click="$refs.scrollContainer.scrollBy({ left: -300, behavior: 'smooth' })">
+        &#8592;
+      </button>
+
+      <!-- ✅ Flèche droite (desktop uniquement) -->
+      <button class="hidden sm:flex absolute top-1/2 right-0 -translate-y-1/2 z-10 bg-gray-900 text-white p-2 rounded-full hover:bg-gray-700"
+              @click="$refs.scrollContainer.scrollBy({ left: 300, behavior: 'smooth' })">
+        &#8594;
+      </button>
     </div>
+
     {% else %}
     <p class="text-white text-center mt-6 text-lg">Aucun événement à venir pour le moment.</p>
     {% endif %}

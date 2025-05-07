@@ -1,13 +1,16 @@
 <div class="bg-white py-16">
   <div class="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
     <!-- Image principale -->
+    {% if global_images and global_images.jesus_at_the_door %}
     <div class="flex justify-center mb-12">
       <img
-        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih0.redbubble.net%2Fimage.387993817.1107%2Fflat%2C1000x1000%2C075%2Cf.u1.jpg&f=1&nofb=1&ipt=6600925c850ed300a669f2bb2cbcd6e1913f4b5ed713d1b4f0228b60786f0317&ipo=images"
+        src="{{ global_images.jesus_at_the_door.url }}"
         alt="Jésus frappe à la porte"
-        class="w-3/4 max-w-md"
+        class="w-3/4 max-w-md rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+        loading="lazy"
       />
     </div>
+  {% endif %}
 
     <!-- Titre principal -->
     <div class="text-center mb-16">
