@@ -72,8 +72,7 @@ class ChurchInfo(models.Model):
     # Nouveau champ pour YouTube
     youtube = models.URLField(verbose_name="YouTube", blank=True)
     # Nouveau champ pour Google Maps
-    google_maps_url = models.URLField(
-        verbose_name="Google Maps URL", blank=True)
+    google_maps_url = models.URLField(verbose_name="Google Maps URL", max_length=500, blank=True)
 
     class Meta:
         verbose_name = "Information de l'église"

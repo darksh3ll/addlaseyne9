@@ -7,10 +7,10 @@
         <p class="text-lg text-gray-600">Venez nous rendre visite. Un parking est disponible pour votre commodité.</p>
     </div>
     
-    {% if address %}
+    {% if church_info.google_maps_url %}
     <div class="rounded-lg overflow-hidden shadow-lg bg-white">
         <iframe class="rounded-lg w-full"
-            src= {{address}}
+            src= {{church_info.google_maps_url}}
             width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -20,4 +20,3 @@
     </div>
     {% endif %}
 </div>
-
