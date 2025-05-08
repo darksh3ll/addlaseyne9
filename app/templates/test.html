@@ -1,148 +1,80 @@
-<section class="my-10" x-data="{ open: false, imageUrl: '' }">
-	<h2 class="carousel-3D-swiper-title text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
-		Nos Rendez-vous : Horaires & Événements
-	</h2>
-
-	<section class="carousel-3D-swiper-section max-w-6xl mx-auto">
-		<div class="swiper carousel-3D-swiper">
-			<div class="swiper-wrapper">
-				{% for item in schedule %}
-				<div class="swiper-slide">
-					<div class="image-wrapper aspect-video rounded-xl overflow-hidden shadow-lg cursor-pointer"
-						 @click="open = true; imageUrl = '{{ item.image.url }}'">
-						<img class="aspect-video w-full h-auto object-cover" src="{{ item.image.url }}" alt="Événement {{ forloop.counter }}">
-					</div>
-					<div class="details mt-2 text-center">
-						<h3 class="text-lg font-semibold text-gray-700 dark:text-white">Titre {{ forloop.counter }}</h3>
-						<span class="text-sm text-gray-500 dark:text-gray-300">Événement</span>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-
-			<!-- Pagination et navigation -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
-			<div class="swiper-pagination" style="bottom: -40px;"></div>
-		</div>
-	</section>
-
-	<!-- Lightbox Alpine -->
-	<div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300"
-		 x-show="open" x-transition>
-		<div class="relative max-w-[90%] max-h-[90%]">
-			<button class="absolute top-2 right-2 text-white text-4xl font-bold hover:text-red-500"
-					@click="open = false">&times;</button>
-			<img :src="imageUrl" alt="Image agrandie" class="max-w-full max-h-full rounded-xl shadow-2xl border-4 border-white" />
-		</div>
-	</div>
-</section>
-<style>
-    .carousel-3D-swiper-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-        max-width: 1200px;
-        margin: auto;
-        overflow: hidden;
-        min-height: 500px;
-    }
-    
-    .carousel-3D-swiper-title {
-        text-align: center;
-        font-size: 3rem;
-        color: orangered;
-    }
-    
-    .carousel-3D-swiper .swiper-slide {
-        position: relative;
-    }
-    
-    .carousel-3D-swiper .image-wrapper {
-        overflow: hidden;
-        //@apply aspect-video;
-        max-height: 225px;
-    }
-    
-    .carousel-3D-swiper .image-wrapper img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        max-height: 225px;
-        -o-object-fit: cover;
-        object-fit: cover;
-        border-radius: 8px;
-        -webkit-box-reflect: below 5px -webkit-linear-gradient(bottom, rgba( 255, 0, 0,	0.1 ) 0%, transparent 32px, transparent 100%);
-    }
-    
-    .details {
-        padding: 25px 20px;
-        font-weight: 600;
-        text-align: center;
-        background-color: #fff;
-    }
-    
-    .details span {
-        display: block;
-        font-size: 16px;
-        color: #f44336;
-    }
-    
-    .details h3 {
-        margin: 0;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 1.1;
-    }
-    
-    .details p {
-        margin: 8px 0 0;
-        opacity: 0.65;
-        font-size: 14px;
-        font-weight: 500;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-    }
-    
-    .carousel-3D-swiper-section .swiper-pagination-bullet {
-        margin: 0 4px;
-      width: 16px;
-      height: 16px;
-        z-index: 50;
-    }
-    
-    .carousel-3D-swiper-section .swiper-pagination-bullet-active {
-        opacity: 1;
-        background: orange;
-    }
-    
-</style>
-<script>
-    const carousel3Dswiper = new Swiper(".carousel-3D-swiper", {
-        loop: true,
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 3,
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 0,
-          depth: 350,
-          modifier: 1,
-          slideShadows: true
-        },
-             navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination"
-        }
-      });
-</script>
+<section class="py-16 bg-gray-100" id="testimonies">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <!-- Titre -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800">Ils ont rencontré Jésus</h2>
+        <p class="mt-2 text-lg text-gray-600">Et leur vie n’a plus jamais été la même. Découvrez ces témoignages vrais, forts et porteurs d’espérance.</p>
+      </div>
+  
+      <!-- Grille de témoignages -->
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <!-- Témoignage 1 -->
+        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+          <div class="flex flex-col justify-between p-6 h-full">
+            <div>
+              <p class="text-blue-700 text-sm font-bold uppercase pb-2">GUÉRISON</p>
+              <h3 class="text-2xl font-bold text-gray-800 hover:text-gray-700 pb-2 line-clamp-2">J’étais malade, Jésus m’a guéri !</h3>
+              <p class="text-sm text-gray-500 pb-3">Par Sarah, publié le 12 mars 2024</p>
+              <p class="text-gray-700">Après des années de souffrance, j'ai été complètement guérie lors d’un temps de prière…</p>
+            </div>
+            <a href="#" class="mt-6 uppercase text-gray-800 hover:text-black font-semibold">Lire le témoignage</a>
+          </div>
+        </article>
+  
+        <!-- Témoignage 2 -->
+        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+          <div class="flex flex-col justify-between p-6 h-full">
+            <div>
+              <p class="text-blue-700 text-sm font-bold uppercase pb-2">LIBÉRATION</p>
+              <h3 class="text-2xl font-bold text-gray-800 hover:text-gray-700 pb-2 line-clamp-2">Libéré de l’addiction</h3>
+              <p class="text-sm text-gray-500 pb-3">Par Marc, publié le 25 janvier 2024</p>
+              <p class="text-gray-700">J’étais dépendant à l’alcool. Jésus m’a transformé et m’a donné une nouvelle vie…</p>
+            </div>
+            <a href="#" class="mt-6 uppercase text-gray-800 hover:text-black font-semibold">Lire le témoignage</a>
+          </div>
+        </article>
+  
+        <!-- Témoignage 3 -->
+        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+          <div class="flex flex-col justify-between p-6 h-full">
+            <div>
+              <p class="text-blue-700 text-sm font-bold uppercase pb-2">ESPOIR</p>
+              <h3 class="text-2xl font-bold text-gray-800 hover:text-gray-700 pb-2 line-clamp-2">Il a changé mon cœur brisé</h3>
+              <p class="text-sm text-gray-500 pb-3">Par Léa, publié le 5 février 2024</p>
+              <p class="text-gray-700">Après un divorce douloureux, j’ai découvert l’amour inconditionnel de Dieu…</p>
+            </div>
+            <a href="#" class="mt-6 uppercase text-gray-800 hover:text-black font-semibold">Lire le témoignage</a>
+          </div>
+        </article>
+  
+        <!-- Témoignage 4 -->
+        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+          <div class="flex flex-col justify-between p-6 h-full">
+            <div>
+              <p class="text-blue-700 text-sm font-bold uppercase pb-2">FOI</p>
+              <h3 class="text-2xl font-bold text-gray-800 hover:text-gray-700 pb-2 line-clamp-2">Une paix inexplicable</h3>
+              <p class="text-sm text-gray-500 pb-3">Par Thomas, publié le 17 avril 2024</p>
+              <p class="text-gray-700">Même au milieu de l’épreuve, j’ai trouvé une paix que seul Jésus pouvait me donner…</p>
+            </div>
+            <a href="#" class="mt-6 uppercase text-gray-800 hover:text-black font-semibold">Lire le témoignage</a>
+          </div>
+        </article>
+  
+        <!-- Témoignage 5 -->
+        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+          <div class="flex flex-col justify-between p-6 h-full">
+            <div>
+              <p class="text-blue-700 text-sm font-bold uppercase pb-2">TRANSFORMATION</p>
+              <h3 class="text-2xl font-bold text-gray-800 hover:text-gray-700 pb-2 line-clamp-2">Une vie complètement changée</h3>
+              <p class="text-sm text-gray-500 pb-3">Par Chloé, publié le 1er mai 2024</p>
+              <p class="text-gray-700">J’ai tout essayé, sans succès. Jésus m’a relevée et a donné un sens à ma vie…</p>
+            </div>
+            <a href="#" class="mt-6 uppercase text-gray-800 hover:text-black font-semibold">Lire le témoignage</a>
+          </div>
+        </article>
+  
+      </div>
+    </div>
+  </section>
+  
