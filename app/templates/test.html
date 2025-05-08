@@ -1,16 +1,60 @@
+
+
+
+
+
+
 <section class="py-16 bg-gray-100" id="testimonies">
     <div class="max-w-screen-xl mx-auto px-4">
       <!-- Titre -->
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-800">Ils ont rencontré Jésus</h2>
-        <p class="mt-2 text-lg text-gray-600">Et leur vie n’a plus jamais été la même. Découvrez ces témoignages vrais, forts et porteurs d’espérance.</p>
+     
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div
+            class="relative isolate overflow-hidden bg-white px-6 py-20 text-center sm:px-16 sm:shadow-sm">
+            <div class="text-center mb-12">
+              <h2 class="text-4xl font-bold text-gray-800">Transformés par la grâce</h2>
+              <p class="mt-2 text-lg text-gray-600">Ils ont traversé des épreuves, rencontré Dieu, et partagé ce qu’Il a fait dans leur vie. Lisez ces récits vrais, puissants et porteurs d’espérance.</p>
+            </div>
+      
+      
+            <form action="/search">
+                <label
+                    class="mx-auto mt-8 relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
+                    for="search-bar">
+      
+                    <input id="search-bar" placeholder="Rechercher un témoignage" name="q"
+                        class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" required="">
+                    <button type="submit"
+                        class="w-full md:w-auto px-6 py-3 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all">
+                        <div class="flex items-center transition-all opacity-1">
+                            <span class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
+                             Recherche
+                            </span>
+                        </div>
+                    </button>
+                </label>
+            </form>
+      
+            <svg viewBox="0 0 1024 1024"
+                class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+                aria-hidden="true">
+                <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7">
+                </circle>
+                <defs>
+                    <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                        <stop stop-color="#3b82f6"></stop>
+                        <stop offset="1" stop-color="#1d4ed8"></stop>
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
       </div>
   
       <!-- Grille de témoignages -->
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         
         <!-- Témoignage 1 -->
-        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+        <article class="neon-glow flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
           <div class="flex flex-col justify-between p-6 h-full">
             <div>
               <p class="text-blue-700 text-sm font-bold uppercase pb-2">GUÉRISON</p>
@@ -23,7 +67,7 @@
         </article>
   
         <!-- Témoignage 2 -->
-        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+        <article class="neon-glow  flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
           <div class="flex flex-col justify-between p-6 h-full">
             <div>
               <p class="text-blue-700 text-sm font-bold uppercase pb-2">LIBÉRATION</p>
@@ -36,7 +80,7 @@
         </article>
   
         <!-- Témoignage 3 -->
-        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+        <article class="neon-glow flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
           <div class="flex flex-col justify-between p-6 h-full">
             <div>
               <p class="text-blue-700 text-sm font-bold uppercase pb-2">ESPOIR</p>
@@ -49,7 +93,7 @@
         </article>
   
         <!-- Témoignage 4 -->
-        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+        <article class="neon-glow flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
           <div class="flex flex-col justify-between p-6 h-full">
             <div>
               <p class="text-blue-700 text-sm font-bold uppercase pb-2">FOI</p>
@@ -62,7 +106,7 @@
         </article>
   
         <!-- Témoignage 5 -->
-        <article class="flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
+        <article class="neon-glow flex flex-col shadow-lg bg-white mx-auto max-w-[400px] min-h-[400px]">
           <div class="flex flex-col justify-between p-6 h-full">
             <div>
               <p class="text-blue-700 text-sm font-bold uppercase pb-2">TRANSFORMATION</p>
@@ -76,5 +120,59 @@
   
       </div>
     </div>
+    <!-- pagination -->
+    <!-- Pagination centrée et stylisée -->
+<div class="flex justify-center mt-12">
+  <nav class="inline-flex space-x-2" aria-label="Pagination">
+    <!-- Précédent -->
+    <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-gray-500 hover:text-indigo-600 hover:border-indigo-600 transition" aria-disabled="true">
+      <span class="sr-only">Précédent</span>
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 8 15">
+        <path d="M7.13 1.91c.18-.21.18-.54-.03-.75a.54.54 0 00-.39-.16.54.54 0 00-.39.16L.83 7.07c-.43.45-.43 1.2 0 1.67l5.52 5.86c.2.2.53.2.74 0s.2-.53 0-.74L1.62 8.01a.25.25 0 010-.34L7.13 1.91z"/>
+      </svg>
+    </a>
+
+    <!-- Pages -->
+    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 bg-indigo-600 text-white font-semibold">1</a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-indigo-600 hover:text-white transition">2</a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-indigo-600 hover:text-white transition">3</a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-indigo-600 hover:text-white transition">4</a>
+    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-indigo-600 hover:text-white transition">5</a>
+
+    <!-- Suivant -->
+    <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-gray-500 hover:text-indigo-600 hover:border-indigo-600 transition">
+      <span class="sr-only">Suivant</span>
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 8 15">
+        <path d="M.87 13.09c-.18.21-.18.54.03.75.1.1.24.16.39.16.15 0 .29-.06.39-.16l5.51-5.87a1.14 1.14 0 000-1.67L1.68.4a.54.54 0 00-.75 0c-.2.21-.2.54 0 .75l5.51 5.86a.25.25 0 010 .34L.87 13.09z"/>
+      </svg>
+    </a>
+  </nav>
+</div>
+
   </section>
-  
+  <style>
+    .neon-glow {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .neon-glow::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: linear-gradient(45deg, rgba(255,0,255,0.3), rgba(0,255,255,0.3));
+      filter: blur(30px);
+      opacity: 0.6;
+      z-index: -1;
+      animation: pulse 3s infinite;
+      border-radius: 1rem;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+  </style>
