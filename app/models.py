@@ -174,3 +174,18 @@ class GlobalSiteImages(models.Model):
 
     def __str__(self):
         return "Images globales du site"
+
+
+class LatestTestimonyVideo(models.Model):
+    video_embed_url = models.URLField(
+        "URL intégrée de la dernière vidéo de témoignages",
+        help_text="Collez ici l'URL du format iframe YouTube (ex: https://www.youtube.com/embed/VIDEO_ID)."
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "Dernière vidéo de témoignage"
+
+    class Meta:
+        verbose_name = "Dernière vidéo de témoignage"
+        verbose_name_plural = "Dernières vidéos de témoignage"
