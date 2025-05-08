@@ -89,22 +89,6 @@
         </template>
       </div>
   
-      <!-- Bouton pause / play -->
-      <button
-        type="button"
-        class="absolute bottom-5 right-5 z-20 rounded-full text-slate-300 opacity-50 transition hover:opacity-80 focus-visible:outline focus-visible:outline-blue-600"
-        aria-label="pause carousel"
-        @click="isPaused = !isPaused; setAutoplayInterval(autoplayIntervalTime)"
-        :aria-pressed="isPaused"
-      >
-        <svg x-show="isPaused" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z" />
-        </svg>
-        <svg x-show="!isPaused" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm5-2.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75v-4.5Zm4 0a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75v-4.5Z" />
-        </svg>
-      </button>
-  
       <!-- Dots navigation -->
       <div class="absolute bottom-3 md:bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-3 px-2 py-1 rounded-xl bg-black/20">
         <template x-for="(slide, index) in slides" :key="index">
