@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule,GlobalSiteImages
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule,GlobalSiteImages,LatestTestimonyVideo
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'role')
@@ -54,9 +54,10 @@ class LatestYouTubeVideoAdmin(admin.ModelAdmin):
 class ChurchScheduleAdmin(admin.ModelAdmin):
     list_display = ("image", "uploaded_at")
 
-
-
-
 @admin.register(GlobalSiteImages)
 class GlobalSiteImagesAdmin(admin.ModelAdmin):
     list_display = ('__str__',)
+
+@admin.register(LatestTestimonyVideo)
+class LatestTestimonyVideoAdmin(admin.ModelAdmin):
+    list_display = ['video_embed_url']

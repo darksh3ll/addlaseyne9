@@ -1,19 +1,17 @@
+{% if latest_testimony %}
 <section id="temoignages" class="bg-white py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Titre principal -->
     <div class="text-center mb-14">
       <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
         Ils ont rencontré Jésus
       </h2>
       <p class="mt-4 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-        Des vies transformées par l’amour de Dieu.<br>
-        Chaque témoignage est une preuve vivante que Jésus change les cœurs et restaure les vies.
+        Des vies transformées par l’amour de Dieu.<br />
+        Chaque témoignage est une preuve vivante que Jésus change les cœurs et
+        restaure les vies.
       </p>
     </div>
 
-    <!-- Dernier témoignage vidéo -->
-    {% if latest_video %}
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-lg text-gray-700 font-semibold mb-4">
         🎥 Dernier témoignage vidéo publié sur notre chaîne :
@@ -22,18 +20,14 @@
         <div class="relative pb-[56.25%]">
           <iframe
             class="absolute top-0 left-0 w-full h-full rounded-lg"
-            src="https://www.youtube.com/embed/{{ latest_video.video_id }}"
+            src="{{ latest_testimony.video_embed_url }}"
             frameborder="0"
             allowfullscreen
           ></iframe>
         </div>
       </div>
     </div>
-    {% else %}
-    <p class="text-center text-gray-500 text-lg mt-4">Aucun témoignage vidéo n'est disponible pour le moment.</p>
-    {% endif %}
 
-    <!-- Bouton vers la playlist -->
     <div class="flex justify-center mt-10">
       <a
         href="{{ church_info.youtube_playlist }}"
@@ -46,3 +40,4 @@
     </div>
   </div>
 </section>
+{% endif %}
