@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule,GlobalSiteImages,LatestTestimonyVideo
+from .models import TeamMember,GalleryPhoto,CarouselItem,ChurchInfo,LiveStream,LatestYouTubeVideo,ChurchSchedule,GlobalSiteImages,LatestTestimonyVideo,Category,Testimony
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'role')
@@ -61,3 +61,16 @@ class GlobalSiteImagesAdmin(admin.ModelAdmin):
 @admin.register(LatestTestimonyVideo)
 class LatestTestimonyVideoAdmin(admin.ModelAdmin):
     list_display = ['video_embed_url']
+
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+
+@admin.register(Testimony)
+class TestimonyAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'category', 'published_date')
+    search_fields = ('title', 'content', 'author')
+    prepopulated_fields = {'slug': ('title',)}

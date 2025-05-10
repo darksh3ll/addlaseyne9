@@ -1,0 +1,26 @@
+<div class="flex justify-center mt-12">
+  <nav class="inline-flex space-x-2" aria-label="Pagination">
+    {% if page_obj.has_previous %}
+    <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}"
+      class="flex items-center justify-center w-10 h-10 rounded-full border text-gray-500 hover:text-indigo-600 hover:border-indigo-600">←</a>
+    {% else %}
+    <span class="w-10 h-10 flex items-center justify-center rounded-full border text-gray-300">←</span>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <span class="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">{{ num }}</span>
+      {% else %}
+        <a href="?q={{ query }}&page={{ num }}"
+          class="w-10 h-10 flex items-center justify-center rounded-full border text-gray-700 hover:bg-indigo-600 hover:text-white">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a href="?q={{ query }}&page={{ page_obj.next_page_number }}"
+      class="flex items-center justify-center w-10 h-10 rounded-full border text-gray-500 hover:text-indigo-600 hover:border-indigo-600">→</a>
+    {% else %}
+    <span class="w-10 h-10 flex items-center justify-center rounded-full border text-gray-300">→</span>
+    {% endif %}
+  </nav>
+</div>

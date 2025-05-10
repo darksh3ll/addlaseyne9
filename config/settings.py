@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'app',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 
 class TeamMember(models.Model):
     first_name = models.CharField(
@@ -189,3 +189,40 @@ class LatestTestimonyVideo(models.Model):
     class Meta:
         verbose_name = "Dernière vidéo de témoignage"
         verbose_name_plural = "Dernières vidéos de témoignage"
+
+
+class Category(models.Model):
+    name = models.CharField("Nom", max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Catégorie de témoignage"
+        verbose_name_plural = "Catégories de témoignages"
+
+
+class Testimony(models.Model):
+    title = models.CharField("Titre", max_length=200)
+    author = models.CharField("Auteur", max_length=100)
+    published_date = models.DateField("Date de publication")
+    content = RichTextField("Contenu")
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name="Catégorie"
+    )
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Témoignage"
+        verbose_name_plural = "Témoignages"
