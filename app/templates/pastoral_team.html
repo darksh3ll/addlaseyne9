@@ -3,27 +3,32 @@
   <div class="container mx-auto max-w-7xl">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+      <h2 class="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
         Notre Équipe Pastorale
       </h2>
-      <div class="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+      <div class="h-1 w-24 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
       <p class="text-gray-600 text-lg">
         Des hommes et des femmes de foi, engagés à vous servir avec amour et vérité.
       </p>
     </div>
 
     <!-- Team Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
       {% for member in team_members %}
-      <div class="group w-full sm:w-72 mx-auto">
-        <div class="relative overflow-hidden rounded-xl mb-4">
+      <div class="group relative bg-white rounded-2xl overflow-hidden shadow-xl transition transform hover:-translate-y-1 hover:shadow-2xl duration-300 w-full sm:w-80 mx-auto">
+        <!-- Image with colored overlay -->
+        <div class="relative h-96">
           <img src="{{ member.image.url }}"
                alt="{{ member.first_name }} {{ member.last_name }}"
-               class="w-full aspect-[3/4] object-cover object-center transform group-hover:scale-105 transition duration-300 ease-in-out">
+               class="absolute inset-0 w-full h-full object-cover object-center z-0">
+          <div class="absolute inset-0 {% cycle 'bg-blue-600' 'bg-red-500' %} opacity-40 mix-blend-multiply z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20"></div>
         </div>
-        <div class="text-center">
-          <h3 class="text-xl font-bold text-gray-800">{{ member.first_name }} {{ member.last_name }}</h3>
-          <p class="text-indigo-600 font-medium">{{ member.role }}</p>
+
+        <!-- Info -->
+        <div class="relative z-30 p-6 text-center">
+          <h3 class="text-xl font-bold text-gray-900">{{ member.first_name }} {{ member.last_name }}</h3>
+          <p class="text-indigo-600 font-medium mt-1">{{ member.role }}</p>
         </div>
       </div>
       {% endfor %}
